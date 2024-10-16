@@ -1,7 +1,9 @@
+#Imports
 import platform
 import subprocess
 import os
 
+#Defs
 def run_file(file_path):
     try:
         if platform.system() == "Windows":
@@ -32,6 +34,6 @@ def main():
         run_file(file_to_run)
     else:
         print(f"File does not exist: {file_to_run}")
-
+#Run
 if __name__ == "__main__":
     main()
