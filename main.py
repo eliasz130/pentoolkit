@@ -23,7 +23,7 @@ def main():
     elif current_os == "Linux":
         file_to_run = "/pentoolkit/linux/main.py"
     elif current_os == "Darwin":  # macOS
-        file_to_run = "/pentoolkit/main.py"
+        file_to_run = "/pentoolkit/mac/main.py"
     else:
         print(f"Unsupported OS: {current_os}")
         return
