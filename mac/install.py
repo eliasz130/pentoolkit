@@ -16,7 +16,6 @@ def install_app_with_brew():
     """Install an app using Homebrew"""
     if is_brew_installed():
         try:
-            install_permissions()
             subprocess.run("mac/install.sh", shell=True)
         except subprocess.CalledProcessError as e:
             print(f"An error occurred while running the install script: {e}")
@@ -24,7 +23,10 @@ def install_app_with_brew():
         print("Homebrew is not installed. Please install Homebrew first. (Use https://github.com/Homebrew/brew/releases/download/4.4.1/Homebrew-4.4.1.pkg to quickly download it)")
 
 if __name__ == "__main__":
+    install_permissions()
     install_app_with_brew()
     subprocess.run("clear", shell=True)
     print("Installation complete.")
+    print("Press any key to go to the main menu.")
+    input()
     subprocess.run("mac/main.py", shell=True)
