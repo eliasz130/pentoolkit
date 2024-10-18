@@ -14,18 +14,21 @@ def check_programs():
 def main_menu():
     while True:
         print("Main Menu:")
-        print("1. Run Install Script")
-        print("2. Run Update Script")
-        print("3. Exit")
+        print("1. Run Script")
+        print("2. Run Install Script")
+        print("3. Run Update Script")
+        print("4. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            clear()
-            subprocess.run("mac/install.py", shell=True)
+            
         elif choice == '2':
             clear()
-            subprocess.run("mac/update.py", shell=True)
+            subprocess.run("mac/install.py", shell=True)
         elif choice == '3':
+            subprocess.run("mac/update.py", shell=True)
+            clear()
+        elif choice == '4':
             print("Exiting...")
             break
         else:
