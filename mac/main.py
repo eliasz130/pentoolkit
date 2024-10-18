@@ -1,15 +1,15 @@
 import os
 import subprocess
 
-def clear():
-    subprocess.run("clear", shell=True)
+def install_permissions():
+    subprocess.run("chmod +x mac/run.sh", shell=True)
     
 def check_programs():
     pass # Check to see if the Brew programs are installed takes off 1 from the main menu, as a backup for the install.py
 
 def main_menu():
     while True:
-        clear()
+        subprocess.run("clear", shell=True)
         print("Main Menu:")
         print("1. Run Script")
         print("2. Run Install Script")
@@ -18,12 +18,13 @@ def main_menu():
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            pass
+            subprocess.run("clear", shell=True)
+            subprocess.run("mac/run.sh", shell=True)
         elif choice == '2':
-            clear()
+            subprocess.run("clear", shell=True)
             subprocess.run("mac/install.py", shell=True)
         elif choice == '3':
-            clear()
+            subprocess.run("clear", shell=True)
             subprocess.run("mac/update.py", shell=True)
         elif choice == '4':
             print("Exiting...")
@@ -32,5 +33,5 @@ def main_menu():
             print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
-    clear()
+    subprocess.run("clear", shell=True)
     main_menu()
