@@ -1,5 +1,5 @@
-import subprocess
-import sys
+#!/usr/bin/env python3
+from imports import *
 
 def install_permissions():
     subprocess.run("chmod +x mac/install.sh", shell=True)

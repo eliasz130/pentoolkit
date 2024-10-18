@@ -6,7 +6,7 @@ brew update
 brew install nmap
 
 # Install Wireshark
-brew install wireshark
+brew install wireshark --formula
 
 # Install Bettercap
 brew install bettercap
