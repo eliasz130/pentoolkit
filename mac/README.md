@@ -1,1 +1,1 @@
-Mac
+For MacOS

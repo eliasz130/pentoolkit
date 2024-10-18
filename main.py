@@ -19,11 +19,11 @@ def main():
 
     # Define paths to files based on the operating system
     if current_os == "Windows":
-        file_to_run = "C:\\pentoolkit\\windows\\main.py"
+        file_to_run = "\\windows\\main.py"
     elif current_os == "Linux":
-        file_to_run = "/pentoolkit/linux/main.py"
+        file_to_run = "linux/main.py"
     elif current_os == "Darwin":  # macOS
-        file_to_run = "/pentoolkit/mac/main.py"
+        file_to_run = "mac/main.py"
     else:
         print(f"Unsupported OS: {current_os}")
         return

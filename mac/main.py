@@ -1,18 +1,29 @@
-import sys, os, subprocess
-def is_brew_installed():
-    """Check if Homebrew is installed"""
-    try:
-        subprocess.run(['brew', '--version'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return True
-    except FileNotFoundError:
-        return False
+import os
+import subprocess
 
-def install_app_with_brew():
-    """Install an app using Homebrew"""
-    if is_brew_installed():
-        try:
-            subprocess.run("/pentoolkit/mac/install.sh", shell=True)
-        finally:
-            print("Homebrew is not installed. Please install Homebrew first. (Use {.href [this](https://github.com/Homebrew/brew/releases/download/4.4.1/Homebrew-4.4.1.pkg)} to quickly download it)")
+def run_install():
+    subprocess.run("mac/install.py", shell=True)
+
+def check_programs():
+    pass # Check to see if the Brew programs are installed takes off 1 from the main menu, as a backup for the install.py
+
+def main_menu():
+    while True:
+        print("Main Menu:")
+        print("1. Run Install Script")
+        print("2. ")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            run_install()
+        elif choice == '2':
+            pass
+        elif choice == '3':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
 if __name__ == "__main__":
-    install_app_with_brew()
+    main_menu()
