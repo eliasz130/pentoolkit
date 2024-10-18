@@ -1,5 +1,4 @@
 import subprocess
-import platform
 import sys
 
 def install_permissions():
@@ -24,9 +23,6 @@ def install_app_with_brew():
         print("Homebrew is not installed. Please install Homebrew first. (Use https://github.com/Homebrew/brew/releases/download/4.4.1/Homebrew-4.4.1.pkg to quickly download it)")
 
 if __name__ == "__main__":
-    if platform.system() != "Darwin":
-        print("This script can only be run on macOS.")
-        sys.exit(1)
     install_permissions()
     install_app_with_brew()
     subprocess.run("clear", shell=True)
