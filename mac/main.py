@@ -17,16 +17,16 @@ def main_menu():
 
         if choice == '1':
             clear()
-            subprocess.run("mac/run.py", shell=True)
+            run("mac/run/run.py")
         elif choice == '2':
             clear()
-            subprocess.run("mac/install.py", shell=True)
+            run("mac/install.py")
         elif choice == '3':
             clear()
-            subprocess.run("mac/update.py", shell=True)
+            run("mac/update.py")
         elif choice == '4':
             clear()
-            subprocess.run("mac/settings.py", shell=True)
+            run("mac/settings.py")
         elif choice == '5':
             print("Exiting...")
             break

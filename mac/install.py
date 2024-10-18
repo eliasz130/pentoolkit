@@ -2,7 +2,7 @@
 from imports import *
 
 def install_permissions():
-    subprocess.run("chmod +x mac/install.sh", shell=True)
+    run("chmod +x mac/install.sh")
 
 def is_brew_installed():
     """Check if Homebrew is installed"""
@@ -17,7 +17,7 @@ def install_app_with_brew():
     if is_brew_installed():
         try:
             install_permissions()
-            subprocess.run("mac/install.sh", shell=True)
+            run("mac/install.sh")
         except subprocess.CalledProcessError as e:
             print(f"An error occurred while running the install script: {e}")
     else:
@@ -25,6 +25,6 @@ def install_app_with_brew():
 
 if __name__ == "__main__":
     install_app_with_brew()
-    subprocess.run("clear", shell=True)
+    clear()
     print("Installation complete.")
-    subprocess.run("mac/main.py", shell=True)
+    run("mac/main.py")
