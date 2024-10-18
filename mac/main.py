@@ -21,13 +21,13 @@ def main_menu():
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            
+            pass
         elif choice == '2':
             clear()
             subprocess.run("mac/install.py", shell=True)
         elif choice == '3':
-            subprocess.run("mac/update.py", shell=True)
             clear()
+            subprocess.run("mac/update.py", shell=True)
         elif choice == '4':
             print("Exiting...")
             break
