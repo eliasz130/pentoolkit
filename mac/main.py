@@ -35,5 +35,5 @@ def main_menu():
             time.sleep(1)
 
 if __name__ == "__main__":
-    subprocess.run("clear", shell=True)
+    clear()
     main_menu()
