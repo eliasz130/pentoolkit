@@ -1,12 +1,9 @@
-# Includes Nmap, Wireshark, Bettercap, johnthereaper, 
+# Includes Nmap, Bettercap, johnthereaper, 
 # Update Homebrew
 brew update
 
 # Install Nmap
 brew install nmap
-
-# Install Wireshark
-brew install wireshark --formula
 
 # Install Bettercap
 brew install bettercap
