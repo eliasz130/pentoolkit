@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-
 # imports (imports.py is not working for some reason on this file)
 import subprocess
 import time
-import sys
+this = False
 
 # Clears screen
 def clear():
@@ -18,7 +17,8 @@ def run_script(script_path, *args):
     subprocess.run([script_path] + list(args))
 
 def main_menu():
-    while True:
+    this = True
+    while this == True:
         clear()
         print("Run Script")
         print("1. Run Nmap")
@@ -34,11 +34,13 @@ def main_menu():
             options = input("Enter options (If any): ")
             target = input("Enter the target: ")
             run_script("mac/run/runlist/nmap.sh", "scan_type", "options", "target")
+            nothing = input("Press enter to continue...")
         elif choice == '2':
             clear()
             target = input("Enter the target: ")
             port = input("Enter the port: ")
             run_script("mac/run/runlist/telnet.sh", "target", "port")
+            nothing = input("Press enter to continue...")
         elif choice == '3':
             clear()
             options = input("Enter options (If any): ")
@@ -46,14 +48,17 @@ def main_menu():
             host = input("Enter the host: ")
             userhost = user + "@" + host
             run_script("mac/run/runlist/ftp.sh", "options", "userhost")
+            nothing = input("Press enter to continue...")
         elif choice == '4':
             clear()
             option = input("Enter options (if any): ")
             target = input("Enter the target: ")
             other = input("Enter other (if any): ")
             run_script("mac/run/runlist/rustscan.sh", "option", "target", "other")
+            nothing = input("Press enter to continue...")
         elif choice == '5':
             clear()
+            this = False
             run("mac/main.py")
         else:
             print("Invalid choice. Please try again.")
