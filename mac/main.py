@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from imports import *
 
 def check_programs():
@@ -10,14 +11,16 @@ def main_menu():
         print("1. Run Script")
         print("2. Run Install Script")
         print("3. Run Update Script")
-        print("4. Settings")
-        print("5. Exit")
+        print("4. Help")
+        print("5. Settings")
+        print("6. Exit")
         choice = input("Enter your choice: ")
 
         # Runs scripts
         if choice == '1':
             clear()
             run("mac/run/run.py")
+            time.sleep(5)
         # Installs scripts
         elif choice == '2':
             clear()
@@ -26,12 +29,16 @@ def main_menu():
         elif choice == '3':
             clear()
             run("mac/update.py")
-        # Settings
+        # Help
         elif choice == '4':
+            clear()
+            run("mac/help.py")
+        # Settings
+        elif choice == '5':
             clear()
             run("mac/settings.py")
         # Exits program
-        elif choice == '5':
+        elif choice == '6':
             print("Exiting...")
             break
         # Invalid choice

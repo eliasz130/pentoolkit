@@ -1,12 +1,15 @@
-# Includes Nmap, Bettercap, johnthereaper, 
+# Includes Nmap, Rustscan, Telnet, and FTP
 # Update Homebrew
 brew update
 
 # Install Nmap
 brew install nmap
 
-# Install Bettercap
-brew install bettercap
+# Install Rustscan
+brew install rustscan
 
-# Install John the Ripper
-brew install john
+# Install Telnet
+brew install telnet
+
+# Install FTP
+brew install ftp

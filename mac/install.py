@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from imports import *
 
 # Allows for install.sh to be run
