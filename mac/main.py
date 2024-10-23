@@ -4,7 +4,7 @@ from imports import *
 def main_menu():
     while True:
         clear()
-        print("Main Menu:")
+        print("Main Menu")
         print("1. Run Script")
         print("2. Run Install Script")
         print("3. Run Update Script")

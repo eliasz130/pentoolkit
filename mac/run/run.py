@@ -60,6 +60,7 @@ def main_menu():
             clear()
             this = False
             run("mac/main.py")
+            break
         else:
             print("Invalid choice. Please try again.")
             time.sleep(1)

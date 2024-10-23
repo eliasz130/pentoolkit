@@ -6,7 +6,7 @@ import sys
 # Clears screen
 def clear():
     subprocess.run("clear", shell=True)
-    
+
 # Run .py file/run install .sh file
 def run(file):
     subprocess.run(file, shell=True)
