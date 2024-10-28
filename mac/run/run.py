@@ -1,24 +1,15 @@
 #!/usr/bin/env python3
-# imports (imports.py is not working for some reason on this file)
 import subprocess
 import time
-this = False
 
-# Clears screen
 def clear():
     subprocess.run("clear", shell=True)
-    
-# Run .py file/run install .sh file
-def run(file):
-    subprocess.run(file, shell=True)
 
-# Run .sh file with arg
 def run_script(script_path, *args):
     subprocess.run([script_path] + list(args))
 
 def main_menu():
-    this = True
-    while this == True:
+    while True:
         clear()
         print("Run Script")
         print("1. Run Nmap")
@@ -33,33 +24,28 @@ def main_menu():
             scan_type = input("Enter the scan type (If any): ")
             options = input("Enter options (If any): ")
             target = input("Enter the target: ")
-            run_script("mac/run/runlist/nmap.sh", "scan_type", "options", "target")
-            nothing = input("Press enter to continue...")
+            run_script("mac/run/runlist/nmap.sh", scan_type, options, target)
         elif choice == '2':
             clear()
             target = input("Enter the target: ")
             port = input("Enter the port: ")
-            run_script("mac/run/runlist/telnet.sh", "target", "port")
-            nothing = input("Press enter to continue...")
+            run_script("mac/run/runlist/telnet.sh", target, port)
         elif choice == '3':
             clear()
             options = input("Enter options (If any): ")
             user = input("Enter the user: ")
             host = input("Enter the host: ")
-            userhost = user + "@" + host
-            run_script("mac/run/runlist/ftp.sh", "options", "userhost")
-            nothing = input("Press enter to continue...")
+            userhost = f"{user}@{host}"
+            run_script("mac/run/runlist/ftp.sh", options, userhost)
         elif choice == '4':
             clear()
             option = input("Enter options (if any): ")
             target = input("Enter the target: ")
             other = input("Enter other (if any): ")
-            run_script("mac/run/runlist/rustscan.sh", "option", "target", "other")
-            nothing = input("Press enter to continue...")
+            run_script("mac/run/runlist/rustscan.sh", option, target, other)
         elif choice == '5':
             clear()
-            this = False
-            run("mac/main.py")
+            run_script("mac/main.py")
             break
         else:
             print("Invalid choice. Please try again.")

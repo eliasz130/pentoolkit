@@ -6,18 +6,19 @@ def clear():
     subprocess.run("clear", shell=True)
 
 def run(file):
-    # Make .sh file executable before running
-    subprocess.run(f"chmod +x {file}", shell=True)
-    subprocess.run(file, shell=True)
+    subprocess.run(f"chmod +x {file} && {file}", shell=True)
 
 def is_brew_installed():
-    try:
-        subprocess.run(['brew', '--version'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return True
-    except FileNotFoundError:
-        return False
+    return subprocess.run(['brew', '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE).returncode == 0
 
 def main_menu():
+    options = {
+        '1': "mac/install/install/all.sh",
+        '2': "mac/install/install/nmap.sh",
+        '3': "mac/install/install/telnet.sh",
+        '4': "mac/install/install/rustscan.sh",
+        '5': "mac/main.py"
+    }
     while True:
         clear()
         print("Install Script")
@@ -28,22 +29,11 @@ def main_menu():
         print("5. Back")
         choice = input("Enter your choice: ")
 
-        if choice == '1':
+        if choice in options:
             clear()
-            run("mac/install/install/all.sh")
-        elif choice == '2':
-            clear()
-            run("mac/install/install/nmap.sh")
-        elif choice == '3':
-            clear()
-            run("mac/install/install/telnet.sh")
-        elif choice == '4':
-            clear()
-            run("mac/install/install/rustscan.sh")
-        elif choice == '5':
-            clear()
-            run("mac/main.py")
-            break
+            run(options[choice])
+            if choice == '5':
+                break
         else:
             print("Invalid choice. Please try again.")
             time.sleep(1)

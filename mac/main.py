@@ -2,6 +2,14 @@
 from imports import *
 
 def main_menu():
+    options = {
+        '1': "mac/run/run.py",
+        '2': "mac/install/install.py",
+        '3': "mac/update.py",
+        '4': "mac/help.py",
+        '5': "mac/settings.py"
+    }
+
     while True:
         clear()
         print("Main Menu")
@@ -13,21 +21,9 @@ def main_menu():
         print("6. Exit")
         choice = input("Enter your choice: ")
 
-        if choice == '1':
+        if choice in options:
             clear()
-            run("mac/run/run.py")
-        elif choice == '2':
-            clear()
-            run("mac/install/install.py")
-        elif choice == '3':
-            clear()
-            run("mac/update.py")
-        elif choice == '4':
-            clear()
-            run("mac/help.py")
-        elif choice == '5':
-            clear()
-            run("mac/settings.py")
+            run(options[choice])
         elif choice == '6':
             print("Exiting...")
             break
