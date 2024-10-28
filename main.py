@@ -1,40 +1,32 @@
 #!/usr/bin/env python3
-#Imports
 import platform
 import subprocess
 import os
 
-#Defs
 def run_file(file_path):
     try:
         if platform.system() == "Windows":
-            os.system(file_path)  # Use os.system for .bat or executables
+            os.system(file_path)
         else:
-            subprocess.run(file_path, shell=True)  # Use subprocess for shell scripts
+            subprocess.run(file_path, shell=True)
     except Exception as e:
         print(f"Error running the file: {e}")
 
 def main():
-    # Detect the current operating system
+    os_paths = {
+        "Windows": "\\windows\\main.py",
+        "Linux": "linux/main.py",
+        "Darwin": "mac/main.py"
+    }
+
     current_os = platform.system()
+    file_to_run = os_paths.get(current_os)
 
-    # Define paths to files based on the operating system
-    if current_os == "Windows":
-        file_to_run = "\\windows\\main.py"
-    elif current_os == "Linux":
-        file_to_run = "linux/main.py"
-    elif current_os == "Darwin":  # macOS
-        file_to_run = "mac/main.py"
-    else:
-        print(f"Unsupported OS: {current_os}")
-        return
-
-    # Run the file if a valid path is found
-    if os.path.exists(file_to_run):
+    if file_to_run and os.path.exists(file_to_run):
         print(f"Running {file_to_run} on {current_os}")
         run_file(file_to_run)
     else:
-        print(f"File does not exist: {file_to_run}")
-#Run
+        print(f"Unsupported OS or file does not exist: {current_os}")
+
 if __name__ == "__main__":
     main()
